@@ -1,3 +1,4 @@
 import "../css/style.css";
+import { Keyboard } from "./keyboard";
 
-console.log("Virtual Keyboard");
+new Keyboard();

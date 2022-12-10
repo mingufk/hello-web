@@ -4,7 +4,6 @@
 }
 
 html[theme="dark-mode"] {
-  /* ! */
   filter: invert(100%) hue-rotate(180deg);
 }
 
@@ -21,7 +20,7 @@ body {
 
 .keyboard {
   background-color: gray;
-  color: gray;
+  color: black;
   width: 1050px;
   border-radius: 10px;
 }
