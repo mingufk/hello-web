@@ -19,8 +19,8 @@ body {
 }
 
 .keyboard {
-  background-color: gray;
-  color: black;
+  background-color: lightblue;
+  color: #333;
   width: 1050px;
   border-radius: 10px;
 }
@@ -35,7 +35,7 @@ body {
   height: 60px;
   margin: 5px;
   border-radius: 6px;
-  background-color: white;
+  background-color: snow;
   cursor: pointer;
   /* ! */
   display: flex;
