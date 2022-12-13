@@ -5,6 +5,8 @@ export class Keyboard {
   #keyboardEl;
   #inputGroupEl;
   #inputEl;
+  #keyPress = false;
+  #mouseDown = false;
 
   constructor() {
     this.#assignElement();
@@ -26,6 +28,11 @@ export class Keyboard {
     document.addEventListener("keydown", this.#handleKeyDown.bind(this));
     document.addEventListener("keyup", this.#handleKeyUp.bind(this));
     this.#inputEl.addEventListener("input", this.#handleInput);
+    this.#keyboardEl.addEventListener(
+      "mousedown",
+      this.#handleMouseDown.bind(this)
+    );
+    document.addEventListener("mouseup", this.#handleMouseUp.bind(this));
   }
 
   #changeTheme(e) {
@@ -40,6 +47,8 @@ export class Keyboard {
   }
 
   #handleKeyDown(e) {
+    if (this.#mouseDown) return;
+    this.#keyPress = true;
     this.#inputGroupEl.classList.toggle(
       "error-message",
       /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/.test(e.key)
@@ -52,6 +61,8 @@ export class Keyboard {
   }
 
   #handleKeyUp(e) {
+    if (this.#mouseDown) return;
+    this.#keyPress = false;
     this.#keyboardEl
       .querySelector(`[data-code=${e.code}]`)
       ?.classList.remove("active");
@@ -59,5 +70,29 @@ export class Keyboard {
 
   #handleInput(e) {
     e.target.value = e.target.value.replace(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/, "");
+  }
+
+  #handleMouseDown(e) {
+    if (this.#keyPress) return;
+    this.#mouseDown = true;
+    e.target.closest("div.key")?.classList.add("active");
+  }
+
+  #handleMouseUp(e) {
+    if (this.#keyPress) return;
+    this.#mouseDown = false;
+    const keyEl = e.target.closest("div.key");
+    const isActive = !!keyEl?.classList.contains("active");
+    const val = keyEl?.dataset?.val;
+    if (isActive && !!val && val !== "Space" && val !== "Backspace") {
+      this.#inputEl.value += val;
+    }
+    if (isActive && val === "Space") {
+      this.#inputEl.value += " ";
+    }
+    if (isActive && val === "Backspace") {
+      this.#inputEl.value = this.#inputEl.value.slice(0, -1);
+    }
+    this.#keyboardEl.querySelector(".active")?.classList.remove("active");
   }
 }
