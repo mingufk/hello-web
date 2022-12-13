@@ -4,13 +4,13 @@
 }
 
 html[theme="dark-mode"] {
-  filter: invert(100%) hue-rotate(180deg);
+  filter: invert(100%) hue-rotate(90deg);
 }
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  background-color: white;
+  background-color: snow;
 }
 
 .container {
@@ -20,13 +20,12 @@ body {
 
 .keyboard {
   background-color: lightblue;
-  color: #333;
+  color: slategray;
   width: 1050px;
   border-radius: 10px;
 }
 
 .row {
-  /* ! */
   display: flex;
 }
 
@@ -34,25 +33,24 @@ body {
   width: 60px;
   height: 60px;
   margin: 5px;
-  border-radius: 6px;
+  border-radius: 5px;
   background-color: snow;
   cursor: pointer;
-  /* ! */
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   transition: 0.2s;
-  /* ! */
 }
 
 .key:hover {
-  background-color: lightgray;
+  background-color: lightcyan;
+  color: cyan;
 }
 
 .key.active {
-  background-color: #333;
-  color: #fff;
+  background-color: lightcyan;
+  color: cyan;
 }
 
 .key .two-value {
@@ -97,7 +95,6 @@ body {
 }
 
 .menu {
-  /* ! */
   display: flex;
 }
 
@@ -108,7 +105,7 @@ body {
 }
 
 .switch input {
-  display: none;
+  appearance: none;
 }
 
 .slider {
@@ -118,12 +115,11 @@ body {
   bottom: 0;
   position: absolute;
   cursor: pointer;
-  background-color: gray;
+  background-color: lightblue;
   border-radius: 34px;
-  transition: 0.4s;
+  transition: 0.5s;
 }
 
-/* ! */
 .slider::before {
   position: absolute;
   content: "";
@@ -131,17 +127,16 @@ body {
   width: 26px;
   left: 4px;
   bottom: 4px;
-  background-color: white;
-  transition: 0.5s;
+  background-color: snow;
+  transition: 0.3s;
   border-radius: 50%;
 }
 
 input:checked + .slider {
-  background-color: black;
+  background-color: lightblue;
 }
 
 input:checked + .slider::before {
-  /* ! */
   transform: translateX(26px);
 }
 
@@ -152,9 +147,8 @@ input:checked + .slider::before {
 }
 
 .select-box select {
-  /* ! */
   font-size: 0.9rem;
-  /* ! */
+  font-family: inherit;
   padding: 2px 5px;
   height: 34px;
   width: 200px;
@@ -166,10 +160,12 @@ input:checked + .slider::before {
 
 .input {
   border: none;
-  border-bottom: 2px solid lightgrey;
+  border-bottom: 2px solid lightblue;
   width: 1050px;
   height: 50px;
-  font-size: 30px;
+  color: slategray;
+  font-size: 32px;
+  font-family: inherit;
   text-align: center;
   display: block;
 }
@@ -187,7 +183,7 @@ input:checked + .slider::before {
 }
 
 .error input {
-  border-bottom: 2px solid red;
+  border-bottom: 2px solid #bb2649;
 }
 
 .error .error-message {
