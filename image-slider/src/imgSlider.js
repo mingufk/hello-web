@@ -5,6 +5,10 @@ export default class ImgSlider {
 
   #slideWidth = 0;
 
+  #intervalId;
+
+  #autoSlide = true;
+
   sliderWrapEl;
 
   sliderListEl;
@@ -15,6 +19,8 @@ export default class ImgSlider {
 
   indicatorWrapEl;
 
+  controlWrapEl;
+
   constructor() {
     this.assignElement();
     this.initSliderNumber();
@@ -23,6 +29,7 @@ export default class ImgSlider {
     this.addEvent();
     this.createIndicator();
     this.setIndicator();
+    this.initAutoSlide();
   }
 
   assignElement() {
@@ -31,6 +38,11 @@ export default class ImgSlider {
     this.nextBtnEl = this.sliderWrapEl.querySelector('#next');
     this.prevBtnEl = this.sliderWrapEl.querySelector('#previous');
     this.indicatorWrapEl = this.sliderWrapEl.querySelector('#indicator-wrap');
+    this.controlWrapEl = this.sliderWrapEl.querySelector('#control-wrap');
+  }
+
+  initAutoSlide() {
+    this.#intervalId = setInterval(this.nextSlide.bind(this), 3000);
   }
 
   initSliderNumber() {
@@ -52,6 +64,21 @@ export default class ImgSlider {
       'click',
       this.clickIndicator.bind(this),
     );
+    this.controlWrapEl.addEventListener('click', this.stopAutoSlide.bind(this));
+  }
+
+  stopAutoSlide(e) {
+    if (e.target.dataset.status === 'play') {
+      this.#autoSlide = true;
+      this.controlWrapEl.classList.add('play');
+      this.controlWrapEl.classList.remove('pause');
+      this.initAutoSlide();
+    } else if (e.target.dataset.status === 'pause') {
+      this.#autoSlide = false;
+      this.controlWrapEl.classList.add('pause');
+      this.controlWrapEl.classList.remove('play');
+      clearInterval(this.#intervalId);
+    }
   }
 
   clickIndicator(e) {
@@ -73,6 +100,10 @@ export default class ImgSlider {
     this.sliderListEl.style.left = `-${
       this.#currentPosition * this.#slideWidth
     }px`;
+    if (this.#autoSlide) {
+      clearInterval(this.#intervalId);
+      this.#intervalId = setInterval(this.nextSlide.bind(this), 3000);
+    }
     this.setIndicator();
   }
 
@@ -84,6 +115,10 @@ export default class ImgSlider {
     this.sliderListEl.style.left = `-${
       this.#currentPosition * this.#slideWidth
     }px`;
+    if (this.#autoSlide) {
+      clearInterval(this.#intervalId);
+      this.#intervalId = setInterval(this.nextSlide.bind(this), 3000);
+    }
     this.setIndicator();
   }
 
