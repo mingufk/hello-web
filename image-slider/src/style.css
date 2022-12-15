@@ -7,7 +7,7 @@
 }
 
 body {
-  background-color: #333;
+  background-color: #bfcad6;
 }
 
 .slider-wrap {
@@ -53,13 +53,13 @@ body {
 .next {
   right: -50px;
   border-radius: 7px 0px 0px 7px;
-  color: snow;
+  color: #bfcad6;
 }
 
 .previous {
   left: -50px;
   border-radius: 0px 7px 7px 7px;
-  color: snow;
+  color: #bfcad6;
 }
 
 .slider-wrap:hover .next {
@@ -85,12 +85,12 @@ body {
 }
 
 .indicator-wrap ul li {
-  margin: 0 4px;
+  margin: 0 3px;
   display: inline-block;
-  width: 15px;
-  height: 15px;
+  width: 13px;
+  height: 13px;
   border-radius: 50%;
-  background: #fff;
+  background: #bfcad6;
   opacity: 0.5;
   position: relative;
   top: 0;
@@ -115,7 +115,7 @@ body {
 }
 
 .control-wrap i {
-  color: snow;
+  color: #bfcad6;
   cursor: pointer;
   margin-right: 20px;
 }
