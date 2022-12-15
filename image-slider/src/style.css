@@ -87,8 +87,8 @@ body {
 .indicator-wrap ul li {
   margin: 0 3px;
   display: inline-block;
-  width: 13px;
-  height: 13px;
+  width: 11px;
+  height: 11px;
   border-radius: 50%;
   background: #bfcad6;
   opacity: 0.5;
@@ -98,8 +98,8 @@ body {
 }
 
 .indicator-wrap ul li.active {
-  width: 15px;
-  height: 15px;
+  width: 13px;
+  height: 13px;
   opacity: 1;
 }
 
