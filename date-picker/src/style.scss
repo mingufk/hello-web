@@ -23,7 +23,6 @@
     box-shadow: 0px 3px 10px rgba(25, 25, 25, 0.2);
     color: #bb2649;
     font-size: 32px;
-    font-weight: bold;
     cursor: pointer;
     &:hover {
       background-color: #bb2649;
@@ -58,8 +57,8 @@
       height: 50px;
 
       .arrows {
-        width: 33px;
-        height: 33px;
+        width: 35px;
+        height: 35px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -123,20 +122,16 @@
 
         &.today {
           background-color: #6667ab;
+          color: #fff;
         }
 
         &.selected {
           background-color: #88b04b;
+          color: #fff;
         }
-        &:nth-child(7n + 2) {
-          color: #bf1932;
-        }
-        &:nth-child(7n + 1) {
-          color: #0f4c81;
-        }
-        &:first-child {
-          grid-column-start: 7;
-        }
+        // &:first-child {
+        //   grid-column-start: 7;
+        // }
       }
     }
   }
