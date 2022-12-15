@@ -1,3 +1,143 @@
-body {
-  background-color: #bb2649;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+  font-family: --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #bfcad6;
+}
+
+.date-picker {
+  position: relative;
+
+  .date-input {
+    margin: 30px auto;
+    display: flex;
+    height: 50px;
+    width: 300px;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    background-color: #bfcad6;
+    box-shadow: 0px 3px 10px rgba(25, 25, 25, 0.2);
+    color: #bb2649;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    &:hover {
+      background-color: #bb2649;
+      color: #bfcad6;
+    }
+  }
+
+  .calendar {
+    display: none;
+    position: absolute;
+    width: 700px;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #bfcad6;
+    outline: 2px solid #bb2649;
+    border-radius: 3%;
+    margin: auto;
+    overflow: hidden;
+
+    &.active {
+      display: block;
+    }
+
+    .month {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #bb2649;
+      font-size: 24px;
+      color: #333;
+      height: 50px;
+
+      .arrows {
+        width: 33px;
+        height: 33px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #bb2649;
+        font-size: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+
+        &:hover {
+          background-color: #bb2649;
+          color: #bfcad6;
+        }
+
+        &:active {
+          background-color: #bfcad6;
+          color: #bb2649;
+        }
+      }
+    }
+
+    .days {
+      display: flex;
+
+      .day {
+        display: flex;
+        width: 100px;
+        height: 50px;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid #bb2649;
+        color: #333;
+
+        &:first-child {
+          color: #bf1932;
+        }
+
+        &:last-child {
+          color: #0f4c81;
+        }
+      }
+    }
+
+    .dates {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+
+      .date {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #333;
+        height: 100px;
+        width: 100px;
+        cursor: pointer;
+        transition: 0.3s;
+
+        &:hover {
+          background-color: #bb2649;
+          color: #bfcad6;
+        }
+
+        &.today {
+          background-color: #6667ab;
+        }
+
+        &.selected {
+          background-color: #88b04b;
+        }
+        &:nth-child(7n + 2) {
+          color: #bf1932;
+        }
+        &:nth-child(7n + 1) {
+          color: #0f4c81;
+        }
+        &:first-child {
+          grid-column-start: 7;
+        }
+      }
+    }
+  }
 }
