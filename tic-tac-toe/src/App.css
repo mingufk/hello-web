@@ -14,7 +14,10 @@
 }
 
 .App-info {
-  margin-left: 20px;
+  margin: 20px;
+  font-size: calc(10px + 2vmin);
+  font-weight: bold;
+  color: #fff;
 }
 
 ol,
