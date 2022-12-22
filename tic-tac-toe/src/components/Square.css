@@ -1,6 +1,6 @@
 .square {
-  background: #fff;
-  border: 1px solid #d4cacd;
+  background: snow;
+  border: 2px solid #d4cacd;
   float: left;
   font-size: 64px;
   font-weight: bold;
@@ -11,4 +11,6 @@
   margin-top: -1px;
   padding: 0;
   text-align: center;
+  cursor: pointer;
+  color: #bb2649;
 }

@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-h1 {
+.App h1 {
   font-size: 64px;
   font-weight: bold;
   color: #d4cacd;
@@ -16,7 +16,6 @@ h1 {
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: #fff;
 }
 
 .App-info {
@@ -27,7 +26,11 @@ h1 {
 }
 
 .status {
-  margin-bottom: 10px;
+  border: 1px solid #d4cacd;
+  border-radius: 16px;
+  padding: 16px;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .moves {
@@ -38,6 +41,10 @@ h1 {
   justify-content: center;
 }
 
+.moves li {
+  list-style: none;
+}
+
 .moves li button {
   margin: 5px;
   padding: 5px;
@@ -45,7 +52,7 @@ h1 {
   border-radius: 5px;
   background-color: #282c34;
   color: #d4cacd;
-  font-size: 32px;
+  font-size: calc(10px + 2vmin);
   font-weight: bold;
   cursor: pointer;
 }
