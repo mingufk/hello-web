@@ -1,12 +1,13 @@
 import Square from './Square'
+import './Board.css'
 
-function Board(props) {
+const Board = ({ squares, onClick }) => {
   const renderSquare = (i) => {
-    return <Square value={props.squares[i]} onClick={() => props.onClick(i)} />
+    return <Square value={squares[i]} onClick={() => onClick(i)} />
   }
 
   return (
-    <div>
+    <div className="board-wrapper">
       <div className="board-row">
         {renderSquare(0)}
         {renderSquare(1)}

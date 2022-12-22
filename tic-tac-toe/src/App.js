@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import Board from './Board'
+import Board from './components/Board'
 import calculateWinner from './calculateWinner'
 
 function App() {
@@ -26,9 +26,6 @@ function App() {
     setXIsNext(step % 2 === 0)
   }
 
-  const current = history[stepNumber]
-  const winner = calculateWinner(current.squares)
-
   const moves = history.map((step, move) => {
     const desc = move ? 'Go to move #' + move : 'Go to game start'
     return (
@@ -37,6 +34,9 @@ function App() {
       </li>
     )
   })
+
+  const current = history[stepNumber]
+  const winner = calculateWinner(current.squares)
 
   let status
   if (winner) {
@@ -52,8 +52,8 @@ function App() {
         <Board squares={current.squares} onClick={(i) => handleClick(i)} />
       </div>
       <div className="App-info">
-        <div>{status}</div>
-        <ol>{moves}</ol>
+        <div className="status">{status}</div>
+        <ol className="moves">{moves}</ol>
       </div>
     </div>
   )
