@@ -4,6 +4,14 @@
   min-height: 100vh;
 }
 
+.App h1 {
+  font-size: 64px;
+  font-weight: bold;
+  color: #fff;
+  margin: 0;
+  padding: 30px;
+}
+
 .App-board {
   display: flex;
   flex-direction: column;
@@ -23,6 +31,11 @@
 ol,
 ul {
   padding-left: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
 }
 
 .board-row:after {
