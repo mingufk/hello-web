@@ -1,0 +1,16 @@
+.square {
+  background: snow;
+  border: 2px solid #d4cacd;
+  float: left;
+  font-size: 64px;
+  font-weight: bold;
+  line-height: 32px;
+  height: 128px;
+  width: 128px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  cursor: pointer;
+  color: #bb2649;
+}
